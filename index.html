@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="MovieController">
+  <head>
+    <title>Weather</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+  <div class="container">
+
+      <div class="well" style="width: 340px">
+
+
+
+
+
+        <div class="animated zoomInRight">
+          <div class="input-group search-bar">
+            <input type="text" ng-model="search" ng-model-options="{ debounce: 1500}" class="form-control" placeholder="Enter City"  onclick="select()" autofocus> </input>
+            <span class="input-group-addon bar-style"><i class="glyphicon glyphicon-search"></i></span>
+          </div>
+        </div>
+
+        <div>
+              <div style="display: inline-block">
+                 <img ng-src="{{ weather.current.condition.icon }}">
+              </div>
+
+              <div style="display: inline-block; padding: 10px">
+                <span class="span-outer"><h3>{{ weather.current.temp_c }}&deg;C</h3></span>
+              </div>
+
+              <div style="display: inline-block; padding: 10px">
+                <span class="span-outer"><h4>{{ weather.location.name }} </h4></span>
+                <span class="span-outer"><h6>{{ weather.current.last_updated | date: "dd-mm-yyyy hh:mm" }} </h6></span>
+              </div>
+
+
+        </div>
+
+        <div>
+          <div style="display: inline-block; padding: 10px ">
+            <span class="span-outer"><h6>{{ weather.forecast.forecastday[1].date }} </h6></span>
+            <img ng-src="{{ weather.forecast.forecastday[1].day.condition.icon }}">
+            <span class="span-outer"><h4>{{ weather.forecast.forecastday[1].day.mintemp_c }}/{{ weather.forecast.forecastday[1].day.maxtemp_c }}</h4></span>
+          </div>
+          <div style="display: inline-block; padding: 10px ">
+            <span class="span-outer"><h6>{{ weather.forecast.forecastday[2].date }} </h6></span>
+            <img ng-src="{{ weather.forecast.forecastday[2].day.condition.icon }}">
+            <span class="span-outer"><h4>{{ weather.forecast.forecastday[2].day.mintemp_c }}/{{ weather.forecast.forecastday[2].day.maxtemp_c }}</h4></span>
+          </div>
+          <div style="display: inline-block; padding: 10px ">
+            <span class="span-outer"><h6>{{ weather.forecast.forecastday[3].date }} </h6></span>
+            <img ng-src="{{ weather.forecast.forecastday[3].day.condition.icon }}">
+            <span class="span-outer"><h4>{{ weather.forecast.forecastday[3].day.mintemp_c }}/{{ weather.forecast.forecastday[3].day.maxtemp_c }}</h4></span>
+          </div>
+
+
+        </div>
+
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+  <script src="app.js"></script>
+  </body>
+</html>
